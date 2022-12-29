@@ -32,8 +32,8 @@ Our goal with this project was to create a program that would tell us where to b
 - For the volume data download the 5 most recent days from: https://data.everef.net/market-history/2022/
 - After doing that you must update the "volumes" list in stationpulls.py with the new CSV files.
 
-## Success to date
-# Trip one
+# Success to date
+## Trip one
 - Total cost: 176,057,888
 - Total profit: 124,000,000
 
