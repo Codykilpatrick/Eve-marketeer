@@ -24,7 +24,7 @@ Our goal with this project was to create a program that would tell us where to b
 - [ ] Make additional attempts to coduct data analysis on
 - [ ] Automate the data reports for each attempt
 
-## Aditional instructions
+## Aditional instructions 👨‍🏫
 - Currently the API for Eve's daily market history is down until further notice so we are stuck using the data from 30OCT22-03NOV22.
 - I have submitted a trouble ticket with the respone "We are not sure when the API will be back up.
 - The program still works the formula is just slightly skewed due to using old historic data.
@@ -32,7 +32,7 @@ Our goal with this project was to create a program that would tell us where to b
 - For the volume data download the 5 most recent days from: https://data.everef.net/market-history/2022/
 - After doing that you must update the "volumes" list in stationpulls.py with the new CSV files.
 
-# Success to date
+# Success to date 🎊
 ## Trip one
 - Total cost: 176,057,888
 - Total profit: 124,000,000
