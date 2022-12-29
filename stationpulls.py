@@ -1,11 +1,11 @@
 import pandas as pd
 
-# *Feature removed until CCP fixes market history API
-# volumes = ['./market-data/volume data/market-history-2022-11-02.csv',
-#             './market-data/volume data/market-history-2022-11-01.csv',
-#             './market-data/volume data/market-history-2022-10-31.csv',
-#             './market-data/volume data/market-history-2022-10-30.csv',
-#             './market-data/volume data/market-history-2022-11-03.csv']
+# *Currently only pulls data for 30OCT22-03NOV22
+volumes = ['./market-data/volume data/market-history-2022-11-02.csv',
+            './market-data/volume data/market-history-2022-11-01.csv',
+            './market-data/volume data/market-history-2022-10-31.csv',
+            './market-data/volume data/market-history-2022-10-30.csv',
+            './market-data/volume data/market-history-2022-11-03.csv']
 stations = ['./market-data/daily-data/domain_daily_data.csv',
             './market-data/daily-data/sinqlaison_daily_data.csv',
             './market-data/daily-data/metropolis_daily_data.csv',
@@ -21,19 +21,19 @@ blank_df = pd.DataFrame()
 volume_df = pd.DataFrame()
 master_volume_summary_df = pd.DataFrame()
 
-# *Feature removed until CCP fixes market history API
-###Pulls the volume history for the past # of days
-# for volume in volumes:
-#     print(volume)
-#     volume_df = pd.read_csv(volume)
-#     volume_df = volume_df.groupby(['region_id', 'type_id']).sum().reset_index()
-#     master_volume_summary_df = pd.concat([master_volume_summary_df, volume_df], ignore_index=True, axis=0)
-# region_id = pd.read_csv(regions)
-# master_volume_summary_df = pd.merge(master_volume_summary_df, region_id, on=['region_id'], how='inner')
-# master_volume_summary_df = master_volume_summary_df.groupby(['system_id', 'type_id']).sum().reset_index()
-# master_volume_summary_df = master_volume_summary_df.drop(['average', 'highest', 'lowest', 'region_id'], axis=1)
-# master_volume_summary_df = master_volume_summary_df.rename(columns={'volume' : 'volume_history'})
-# master_volume_summary_df = master_volume_summary_df.rename(columns={'order_count' : 'order_count_history'})
+# *Currently only pulls data for 30OCT22-03NOV22
+##Pulls the volume history for the past # of days
+for volume in volumes:
+    print(volume)
+    volume_df = pd.read_csv(volume)
+    volume_df = volume_df.groupby(['region_id', 'type_id']).sum().reset_index()
+    master_volume_summary_df = pd.concat([master_volume_summary_df, volume_df], ignore_index=True, axis=0)
+region_id = pd.read_csv(regions)
+master_volume_summary_df = pd.merge(master_volume_summary_df, region_id, on=['region_id'], how='inner')
+master_volume_summary_df = master_volume_summary_df.groupby(['system_id', 'type_id']).sum().reset_index()
+master_volume_summary_df = master_volume_summary_df.drop(['average', 'highest', 'lowest', 'region_id'], axis=1)
+master_volume_summary_df = master_volume_summary_df.rename(columns={'volume' : 'volume_history'})
+master_volume_summary_df = master_volume_summary_df.rename(columns={'order_count' : 'order_count_history'})
 for station in stations:
     print(station)
     station_df = pd.read_csv(station)
